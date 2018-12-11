@@ -3,6 +3,7 @@ import SimpleMFRC522
 
 import mysql.connector
 from mysql.connector import errorcode
+import time
 
 query = ("INSERT INTO rfid_temp(UID) VALUES(%s);")
 try:
@@ -19,6 +20,7 @@ try:
 		data = UID
 		cursor.execute(query,data)
 		cnx.commit()
+		sleep(2)
 
 except mysql.connector.Error as err:
     if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
