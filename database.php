@@ -22,6 +22,32 @@ class Database
         return $this->conn->real_escape_string($string);
     }
 
+    public function fechtRfidTemp(){
+        $stmt = $this->conn->prepare("
+            SELECT * FROM rfid_temp ORDER BY id DESC LIMIT 1
+        ");
+        $stmt->execute();    
+        $result = $stmt->get_result();
+
+        if ($result) {
+            $data = $result->fetch_assoc();
+            return $data;
+        }else{
+            return false;
+        }
+    }
+
+    public function deleteRfidTemp($id)
+    {
+
+        $stmt = $this->conn->prepare("
+            Delete FROM rfid_temp WHERE id = ?
+        ");
+        $stmt->bind_param('i', $id) or die($this->conn->error);
+        $stmt->execute();    
+        $result = $stmt->get_result();   
+    }
+
     // fetching the user info
     public function fetchData($UID)
     {

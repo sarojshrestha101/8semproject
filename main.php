@@ -3,11 +3,12 @@ include "database.php";
 $db = new Database;
 $indexURL = "http://localhost/8semproject/";
 
-if(!$_POST){
-   header("Location:".$indexURL);   
-}
-
-$data = $db->fetchData($db->sanitize($_POST['UID']));
+// if(!$_POST){
+//    header("Location:".$indexURL);   
+// }
+$dataTemp = $db->fechtRfidTemp();
+$data = $db->fetchData($dataTemp['UID']);
+$db->deleteRfidTemp($dataTemp['id']);
 ?>
 
 <!DOCTYPE html>
@@ -46,6 +47,17 @@ $data = $db->fetchData($db->sanitize($_POST['UID']));
             <div class="container">
                 <div class="vehicle-content">
                     <div class="seprate">
+
+
+                        <div class="abc-20">
+                            <div class="title">
+                                <h4>Rfid:</h4>
+                            </div>
+                        </div>
+                        <div class="abc-30">
+                            <p><?php echo $data["uniquekey"]?></p>
+                        </div>
+
                         <div class="abc-20">
                             <div class="title">
                                 <h4>Model:</h4>
@@ -232,7 +244,7 @@ $data = $db->fetchData($db->sanitize($_POST['UID']));
        </div>
     </section>
 <div class="sub-btn">
-    <a href="index.php">Back</a>
+    <a href="#">Refresh</a>
 </div>
 
 <footer>
