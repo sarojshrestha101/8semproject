@@ -8,9 +8,6 @@ if(!$_POST){
 }
 
 $data = $db->fetchData($db->sanitize($_POST['UID']));
-// echo "<pre>";
-// var_dump($data);
-// echo "<pre>";
 ?>
 
 <!DOCTYPE html>
@@ -41,9 +38,7 @@ $data = $db->fetchData($db->sanitize($_POST['UID']));
                     <ul>
                         <li>Vehicle Details</li>
 
-                    </ul>
-
-
+                    </ul>        
                 </div>
             </nav>
 
@@ -236,7 +231,9 @@ $data = $db->fetchData($db->sanitize($_POST['UID']));
             </div>
        </div>
     </section>
-
+<div class="sub-btn">
+    <a href="index.php">Back</a>
+</div>
 
 <footer>
         <div class="container">

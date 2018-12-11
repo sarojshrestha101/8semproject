@@ -1,3 +1,6 @@
+<?php 
+    $UID = $_GET['UID'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +11,7 @@
 </head>
 <body>
     <form action="main.php" method="post" name="UIDForm" onchange="checkLength()">
-        <input type="text" name="UID" id="UID" maxlength="12">        
+        <input type="text" name="UID" id="UID" maxlength="12" value="<?php echo $UID?>">        
     </form>
 
     <script>
@@ -24,6 +27,7 @@
                 document.querySelector("#UID").value = "";
             }   
         }
+
     </script>
 </body>
 </html>
