@@ -26,7 +26,11 @@ class Database
     public function fetchData($UID)
     {
         $stmt = $this->conn->prepare("
-            select * from info where UID = ?
+        SELECT * FROM vehicle v 
+
+        INNER JOIN ownerinfo o on v.oid= o.oid
+        INNER JOIN vehicle_tax t on t.vehicle= v.vid
+        INNER JOIN rfid r on v.rfid_id=r.rfid_id WHERE r.uniquekey= ?;
         ") or die(
             $this->conn->error
         );

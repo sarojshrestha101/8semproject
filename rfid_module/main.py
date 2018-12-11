@@ -10,7 +10,6 @@ server = 'http://192.168.100.143/post.php'
 while True:
 
 	try:
-		ts = datetime.datetime.utcnow()
 		UID, text = reader.read()
 		print("UID found")
 		print(UID)
@@ -19,7 +18,7 @@ while True:
 			'UID' : UID
 		}
 
-		r = requests.get(server, params = payload)
+		r = requests.post(server, params = payload)
 		print(r.url)
 	
 	finally:
