@@ -8,7 +8,7 @@ import time
 query = ("INSERT INTO rfid_temp(UID) VALUES(%s);")
 try:
     cnx = mysql.connector.connect(
-		host = '192.168.100.143:3306'
+		host = '192.168.100.143:3306',
         user = 'root',
         passwd = '',
         database = 'erashid'
