@@ -39,17 +39,11 @@ $data = $db->fetchData($db->sanitize($_POST['UID']));
             <nav>
                 <div class="main-nav container">
                     <ul>
-                        <li><a href="../index.html">Vehicle Details</a></li>
-                        <li><a href="../Registration/registration.html">Registration</a></li>
-                        <li><a href="../owner/ownerno.html">Ownership Transfer</a></li>
+                        <li>Vehicle Details</li>
 
                     </ul>
 
-                <div class="login">
-                    <ul>
-                      <li><a href="#">Logout</a></li>
-                    </ul>
-                  </div>
+
                 </div>
             </nav>
 
@@ -192,7 +186,7 @@ $data = $db->fetchData($db->sanitize($_POST['UID']));
                             </div>
                         </div>
                         <div class="abc-30">
-                            <p><?php echo $data[""]?></p>
+                            <p><?php echo $data["oname"]?></p>
                         </div>
 
                         <div class="abc-20">
@@ -201,7 +195,7 @@ $data = $db->fetchData($db->sanitize($_POST['UID']));
                                 </div>
                             </div>
                             <div class="abc-30">
-                                <p><?php echo $data[""]?></p>
+                                <p><?php echo $data["p_district"]." ".$data["p_stateno"]." ".$data["p_vdc_mun"]." ".$data["p_wardno"].$data["p_zone"]?></p>
                             </div>
 
                             <div class="abc-20">
@@ -210,7 +204,7 @@ $data = $db->fetchData($db->sanitize($_POST['UID']));
                                     </div>
                                 </div>
                                 <div class="abc-30">
-                                        <p><?php echo $data["t_phone_no"]?></p>
+                                        <p><?php echo $data["p_home_no"]?></p>
                                     </div>
 
                 </div>
@@ -242,9 +236,7 @@ $data = $db->fetchData($db->sanitize($_POST['UID']));
             </div>
        </div>
     </section>
-<div class="sub-btn">
-    <a href="detailsupdate.html">Update</a>
-</div>
+
 
 <footer>
         <div class="container">
