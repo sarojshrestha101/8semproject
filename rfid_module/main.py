@@ -6,7 +6,7 @@ import datetime
 import time
 
 reader = SimpleMFRC522.SimpleMFRC522()
-server = 'http://192.168.100.143/post.php'
+server = 'http://192.168.100.143/8semproject/index.php'
 while True:
 
 	try:
