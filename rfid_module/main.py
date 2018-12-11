@@ -1,10 +1,12 @@
+import RPi.GPIO as GPIO
 import SimpleMFRC522
 
 import requests
 import datetime
+import time
 
 reader = SimpleMFRC522.SimpleMFRC522()
-server = 'htpp://httpbin.org/post'
+server = 'http://192.168.100.143/post.php'
 while True:
 
 	try:
@@ -14,13 +16,13 @@ while True:
 		print(UID)
 
 		payload = {
-			'UID' : UID,
-			'timeStamp' : ts
+			'UID' : UID
 		}
 
 		r = requests.get(server, params = payload)
 		print(r.url)
 	
 	finally:
+		print("finish")
 		GPIO.cleanup()
-
+		time.sleep(2)

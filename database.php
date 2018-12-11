@@ -3,11 +3,11 @@
 class Database 
 {
     // defining server variable
-    private $server = "localhost";
+    private $server = "192.168.100.143:3306";
     private $userName = "root";
     private $password = "";       
-    private $dbName = "dummy";
-
+    private $dbName = "erashid";
+    private $port = 3306;
     public  $conn;
 
     // server connection
